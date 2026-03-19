@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, Globe } from "lucide-react";
 import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
+import { useTranslation } from "react-i18next";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -18,6 +19,11 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+
+  const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    i18n.changeLanguage(e.target.value);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,11 +58,11 @@ export default function Navbar() {
             </a>
             <a href="https://wa.me/919099116166" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors">
               <MessageCircle size={12} className="text-[#25D366]" style={{ width: '1em', height: '1em' }} />
-              <span>WhatsApp Us</span>
+              <span>{t('nav.WhatsApp Us')}</span>
             </a>
           </div>
           <div className="font-serif italic text-gold-light tracking-wider text-center w-full md:w-auto truncate">
-            Pure Veg Catering for Every Occasion
+            {t('nav.Pure Veg Catering for Every Occasion')}
           </div>
         </div>
       </div>
@@ -80,7 +86,7 @@ export default function Navbar() {
                   )}
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
-                  <span className="capitalize">Gayatri Caterers</span>
+                  <span className="capitalize">{t('nav.Gayatri Caterers')}</span>
                 </span>
 
                 <div className="flex items-center gap-3 mt-[4px]">
@@ -91,7 +97,7 @@ export default function Navbar() {
                       hasBackground || isMobileMenuOpen ? "text-[#3D6611]" : "text-white"
                     )}
                   >
-                    Pure Veg Catering
+                    {t('nav.Pure Veg Catering')}
                   </span>
                   <div className={cn("flex-grow h-[1px] rounded-full", hasBackground || isMobileMenuOpen ? "bg-[#C89B3C]" : "bg-white/50")}></div>
                 </div>
@@ -113,7 +119,7 @@ export default function Navbar() {
                         : "text-white drop-shadow-sm hover:text-gold"
                   )}
                 >
-                  {link.name}
+                  {t(`nav.${link.name}`)}
                   <span className={cn(
                     "absolute -bottom-2 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full",
                     location.pathname === link.path ? "w-full" : ""
@@ -129,20 +135,52 @@ export default function Navbar() {
                     : "bg-gold text-maroon-dark border-gold hover:bg-transparent hover:text-gold"
                 )}
               >
-                Get Quote
+                {t('nav.Get Quote')}
               </Link>
+
+              {/* Language Switcher Desktop */}
+              <div className={cn(
+                "flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 shadow-sm transition-colors",
+                hasBackground ? "bg-gray-50 text-gray-800" : "bg-white/10 text-white border-white/20 backdrop-blur-sm"
+              )}>
+                <Globe size={16} className={hasBackground ? "text-gray-600" : "text-white/80"} />
+                <select
+                  value={i18n.language.substring(0, 2)}
+                  onChange={handleLanguageChange}
+                  className="bg-transparent font-medium text-sm focus:outline-none cursor-pointer"
+                >
+                  <option value="gu" className="text-black">ગુજરાતી</option>
+                  <option value="en" className="text-black">English</option>
+                </select>
+              </div>
             </nav>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              className={cn(
-                "lg:hidden z-50 p-2 rounded-lg transition-colors",
-                hasBackground || isMobileMenuOpen ? "text-maroon hover:bg-maroon/5" : "text-white hover:bg-white/10"
-              )}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            {/* Mobile Menu Toggle & Language Switcher */}
+            <div className="flex items-center gap-2 lg:hidden z-50">
+              <div className={cn(
+                "flex items-center gap-1 px-2 py-1 rounded-full border",
+                hasBackground || isMobileMenuOpen ? "bg-gray-50 border-gray-200 text-gray-800" : "bg-white/10 text-white border-white/20"
+              )}>
+                <Globe size={14} />
+                <select
+                  value={i18n.language.substring(0, 2)}
+                  onChange={handleLanguageChange}
+                  className="bg-transparent font-medium text-xs focus:outline-none cursor-pointer"
+                >
+                  <option value="gu" className="text-black">GU</option>
+                  <option value="en" className="text-black">EN</option>
+                </select>
+              </div>
+              <button
+                className={cn(
+                  "p-2 rounded-lg transition-colors",
+                  hasBackground || isMobileMenuOpen ? "text-maroon hover:bg-maroon/5" : "text-white hover:bg-white/10"
+                )}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -172,7 +210,7 @@ export default function Navbar() {
                       location.pathname === link.path ? "text-gold font-bold" : "text-gray-800 hover:text-maroon"
                     )}
                   >
-                    {link.name}
+                    {t(`nav.${link.name}`)}
                   </Link>
                 </motion.div>
               ))}
@@ -186,12 +224,12 @@ export default function Navbar() {
                   to="/contact"
                   className="bg-maroon hover:bg-white border-2 border-maroon text-white hover:text-maroon text-center py-4 rounded-full font-bold uppercase tracking-wider block w-full shadow-lg transition-all"
                 >
-                  Get A Free Quote
+                  {t('nav.Get A Free Quote')}
                 </Link>
               </motion.div>
 
               <div className="mt-8 flex flex-col items-center gap-3 text-gray-600 bg-gray-50 p-6 rounded-2xl border border-gold/20">
-                <span className="font-serif italic text-sm text-center text-maroon">Pure Veg Catering for Every Occasion</span>
+                <span className="font-serif italic text-sm text-center text-maroon">{t('nav.Pure Veg Catering for Every Occasion')}</span>
                 <div className="flex items-center gap-4 text-sm font-bold mt-2">
                   <a href="tel:+919099116166" className="flex items-center gap-1.5 hover:text-maroon">
                     <Phone size={18} className="text-gold" />
@@ -199,7 +237,7 @@ export default function Navbar() {
                   </a>
                   <a href="https://wa.me/919099116166" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-[#25D366]">
                     <MessageCircle size={18} className="text-[#25D366]" />
-                    <span>WhatsApp</span>
+                    <span>{t('nav.WhatsApp Us')}</span>
                   </a>
                 </div>
               </div>

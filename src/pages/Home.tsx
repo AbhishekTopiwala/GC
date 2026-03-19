@@ -11,6 +11,7 @@ import {
   Phone,
 } from "lucide-react";
 import GoogleReviews from "../components/GoogleReviews";
+import { useTranslation } from "react-i18next";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -20,6 +21,7 @@ const fadeIn = {
 };
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <div>
       {/* Hero Section */}
@@ -43,7 +45,7 @@ export default function Home() {
             className="mb-6 inline-block"
           >
             <span className="bg-gold/20 text-gold px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-widest border border-gold/30 backdrop-blur-sm">
-              Premium Pure Vegetarian
+              {t('home.Premium Pure Vegetarian')}
             </span>
           </motion.div>
 
@@ -53,8 +55,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Delicious Catering for <br />
-            <span className="text-gold italic">Every Celebration</span>
+            {t('home.Delicious Catering for')} <br />
+            <span className="text-gold italic">{t('home.Every Celebration')}</span>
           </motion.h1>
 
           <motion.p
@@ -63,8 +65,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Authentic Gujarati & North Indian cuisine crafted with passion,
-            served with elegance across Gujarat.
+            {t('home.Hero Description')}
           </motion.p>
 
           <motion.div
@@ -77,13 +78,13 @@ export default function Home() {
               to="/book"
               className="bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] w-full sm:w-auto"
             >
-              Book Catering
+              {t('home.Book Catering')}
             </Link>
             <Link
               to="/menu"
               className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all w-full sm:w-auto"
             >
-              View Menu
+              {t('home.View Menu')}
             </Link>
           </motion.div>
         </div>
@@ -94,10 +95,10 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/20">
             {[
-              { icon: Users, count: "10,000+", label: "Happy Guests" },
-              { icon: Calendar, count: "500+", label: "Events Catered" },
-              { icon: Utensils, count: "150+", label: "Menu Items" },
-              { icon: Award, count: "15+", label: "Years Experience" },
+              { icon: Users, count: "10,000+", label: t('home.Happy Guests') },
+              { icon: Calendar, count: "500+", label: t('home.Events Catered') },
+              { icon: Utensils, count: "150+", label: t('home.Menu Items') },
+              { icon: Award, count: "15+", label: t('home.Years Experience') },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -125,15 +126,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
-              Our Expertise
+              {t('home.Our Expertise')}
             </h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-maroon mb-6">
-              Catering Services
+              {t('home.Catering Services')}
             </h3>
             <div className="w-24 h-1 bg-gold mx-auto mb-6"></div>
             <p className="text-gray-600 text-lg">
-              We provide premium catering services for all types of events,
-              ensuring your guests leave with a memorable culinary experience.
+              {t('home.Services Description')}
             </p>
           </div>
 
