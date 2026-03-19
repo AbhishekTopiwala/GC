@@ -1,6 +1,6 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, MessageCircle, Globe } from "lucide-react";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
@@ -21,8 +21,40 @@ export default function Navbar() {
   const location = useLocation();
   const { t, i18n } = useTranslation();
 
-  const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(e.target.value);
+  const currentLang = i18n.language.substring(0, 2);
+
+  const LanguageToggle = ({ isMobile = false }) => {
+    const isDarkBg = hasBackground || (isMobile && isMobileMenuOpen);
+
+    return (
+      <div className={cn(
+        "flex items-center p-1 rounded-full border transition-colors cursor-pointer",
+        isDarkBg ? "bg-gray-100 border-gray-200" : "bg-white/10 border-white/20 backdrop-blur-md"
+      )}>
+        <button
+          onClick={() => i18n.changeLanguage('gu')}
+          className={cn(
+            "px-3 py-1 md:py-1.5 text-xs md:text-sm font-bold rounded-full transition-all duration-300",
+            currentLang === 'gu'
+              ? isDarkBg ? "bg-maroon text-white shadow-md" : "bg-gold text-maroon-dark shadow-md"
+              : isDarkBg ? "text-gray-600 hover:text-maroon" : "text-white/80 hover:text-white"
+          )}
+        >
+          ગુજ
+        </button>
+        <button
+          onClick={() => i18n.changeLanguage('en')}
+          className={cn(
+            "px-3 py-1 md:py-1.5 text-xs md:text-sm font-bold rounded-full transition-all duration-300 uppercase tracking-wider",
+            currentLang === 'en'
+              ? isDarkBg ? "bg-maroon text-white shadow-md" : "bg-gold text-maroon-dark shadow-md"
+              : isDarkBg ? "text-gray-600 hover:text-maroon" : "text-white/80 hover:text-white"
+          )}
+        >
+          EN
+        </button>
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -139,38 +171,12 @@ export default function Navbar() {
               </Link>
 
               {/* Language Switcher Desktop */}
-              <div className={cn(
-                "flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 shadow-sm transition-colors",
-                hasBackground ? "bg-gray-50 text-gray-800" : "bg-white/10 text-white border-white/20 backdrop-blur-sm"
-              )}>
-                <Globe size={16} className={hasBackground ? "text-gray-600" : "text-white/80"} />
-                <select
-                  value={i18n.language.substring(0, 2)}
-                  onChange={handleLanguageChange}
-                  className="bg-transparent font-medium text-sm focus:outline-none cursor-pointer"
-                >
-                  <option value="gu" className="text-black">ગુજરાતી</option>
-                  <option value="en" className="text-black">English</option>
-                </select>
-              </div>
+              <LanguageToggle />
             </nav>
 
             {/* Mobile Menu Toggle & Language Switcher */}
-            <div className="flex items-center gap-2 lg:hidden z-50">
-              <div className={cn(
-                "flex items-center gap-1 px-2 py-1 rounded-full border",
-                hasBackground || isMobileMenuOpen ? "bg-gray-50 border-gray-200 text-gray-800" : "bg-white/10 text-white border-white/20"
-              )}>
-                <Globe size={14} />
-                <select
-                  value={i18n.language.substring(0, 2)}
-                  onChange={handleLanguageChange}
-                  className="bg-transparent font-medium text-xs focus:outline-none cursor-pointer"
-                >
-                  <option value="gu" className="text-black">GU</option>
-                  <option value="en" className="text-black">EN</option>
-                </select>
-              </div>
+            <div className="flex items-center gap-3 lg:hidden z-50">
+              <LanguageToggle isMobile={true} />
               <button
                 className={cn(
                   "p-2 rounded-lg transition-colors",
