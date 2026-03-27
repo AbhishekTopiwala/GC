@@ -140,18 +140,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Wedding Catering",
-                desc: "Grand feasts for your special day with traditional and modern delicacies.",
+                title: t('home.Wedding Catering'),
+                desc: t('home.Grand feasts for your special day with traditional and modern delicacies.'),
                 img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
               },
               {
-                title: "Corporate Events",
-                desc: "Professional catering with elegant presentation for business gatherings.",
+                title: t('home.Corporate Events'),
+                desc: t('home.Professional catering with elegant presentation for business gatherings.'),
                 img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
               },
               {
-                title: "Social Gatherings",
-                desc: "Customized menus for birthdays, anniversaries, and religious functions.",
+                title: t('home.Social Gatherings'),
+                desc: t('home.Customized menus for birthdays, anniversaries, and religious functions.'),
                 img: "https://foodish-api.com/images/dessert/dessert7.jpg",
               },
             ].map((service, index) => (
@@ -181,7 +181,7 @@ export default function Home() {
                     to="/services"
                     className="text-gold flex items-center gap-2 font-medium group/link"
                   >
-                    Explore{" "}
+                    {t('home.Explore')}{" "}
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover/link:translate-x-2"
@@ -200,45 +200,44 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16">
             <div className="max-w-2xl">
               <h2 className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
-                Taste of Tradition
+                {t('home.Taste of Tradition')}
               </h2>
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-maroon mb-6">
-                Featured Delicacies
+                {t('home.Featured Delicacies')}
               </h3>
               <div className="w-24 h-1 bg-gold mb-6"></div>
               <p className="text-gray-600 text-lg">
-                A glimpse into our most loved authentic dishes prepared with
-                secret family recipes and pure ingredients.
+                {t('home.A glimpse into our most loved authentic dishes prepared with secret family recipes and pure ingredients.')}
               </p>
             </div>
             <Link
               to="/menu"
               className="hidden md:flex items-center gap-2 text-maroon font-semibold hover:text-gold transition-colors mt-6 md:mt-0"
             >
-              View Full Menu <ArrowRight size={20} />
+              {t('home.View Full Menu')} <ArrowRight size={20} />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: "Gujarati Thali",
-                type: "Main Course",
+                name: t('home.Gujarati Thali'),
+                type: t('home.Main Course'),
                 img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
               },
               {
-                name: "Paneer Tikka Masala",
-                type: "North Indian",
+                name: t('home.Paneer Tikka Masala'),
+                type: t('home.North Indian'),
                 img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
               },
               {
-                name: "Live Chaat Counter",
-                type: "Starters",
+                name: t('home.Live Chaat Counter'),
+                type: t('home.Starters'),
                 img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
               },
               {
-                name: "Premium Sweets",
-                type: "Desserts",
+                name: t('home.Premium Sweets'),
+                type: t('home.Desserts'),
                 img: "https://foodish-api.com/images/dessert/dessert5.jpg",
               },
             ].map((item, index) => (
@@ -274,7 +273,7 @@ export default function Home() {
               to="/menu"
               className="inline-flex items-center gap-2 text-maroon font-semibold hover:text-gold transition-colors"
             >
-              View Full Menu <ArrowRight size={20} />
+              {t('home.View Full Menu')} <ArrowRight size={20} />
             </Link>
           </div>
         </div>
@@ -287,29 +286,29 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeIn}>
               <h2 className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
-                The Gayatri Promise
+                {t('home.The Gayatri Promise')}
               </h2>
               <h3 className="text-4xl md:text-5xl font-serif font-bold mb-8">
-                Why Choose Us For Your Special Day?
+                {t('home.Why Choose Us For Your Special Day?')}
               </h3>
 
               <div className="space-y-6">
                 {[
                   {
-                    title: "100% Pure Vegetarian",
-                    desc: "Strictly vegetarian kitchen with separate Jain food preparation areas.",
+                    title: t('home.100% Pure Vegetarian'),
+                    desc: t('home.Strictly vegetarian kitchen with separate Jain food preparation areas.'),
                   },
                   {
-                    title: "Premium Ingredients",
-                    desc: "We source only the highest quality spices, fresh vegetables, and pure ghee.",
+                    title: t('home.Premium Ingredients'),
+                    desc: t('home.We source only the highest quality spices, fresh vegetables, and pure ghee.'),
                   },
                   {
-                    title: "Impeccable Hygiene",
-                    desc: "State-of-the-art kitchen facilities maintaining the highest standards of cleanliness.",
+                    title: t('home.Impeccable Hygiene'),
+                    desc: t('home.State-of-the-art kitchen facilities maintaining the highest standards of cleanliness.'),
                   },
                   {
-                    title: "Professional Staff",
-                    desc: "Trained chefs and courteous serving staff in elegant uniforms.",
+                    title: t('home.Professional Staff'),
+                    desc: t('home.Trained chefs and courteous serving staff in elegant uniforms.'),
                   },
                 ].map((feature, index) => (
                   <div key={index} className="flex gap-4">
@@ -349,11 +348,10 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-gray-800 font-medium italic">
-                  "The food was absolutely divine. All our guests couldn't stop
-                  praising the taste and presentation!"
+                  "{t('home.Review Quote')}"
                 </p>
                 <p className="text-sm text-gray-500 mt-2">
-                  - Rahul & Priya (Wedding Client)
+                  {t('home.Review Author')}
                 </p>
               </div>
             </motion.div>
@@ -372,24 +370,23 @@ export default function Home() {
             className="max-w-3xl mx-auto bg-white p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100"
           >
             <h2 className="text-4xl font-serif font-bold text-maroon mb-6">
-              Ready to Plan Your Event Menu?
+              {t('home.Ready to Plan Your Event Menu?')}
             </h2>
             <p className="text-gray-600 text-lg mb-10">
-              Contact us today for a free consultation and customized menu for
-              your upcoming celebration.
+              {t('home.Contact us today for a free consultation and customized menu for your upcoming celebration.')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/book"
                 className="bg-maroon hover:bg-maroon-light text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors"
               >
-                Book Your Event
+                {t('home.Book Your Event')}
               </Link>
               <a
                 href="tel:+919876543210"
                 className="bg-white border-2 border-maroon text-maroon hover:bg-maroon/5 px-8 py-4 rounded-full font-semibold text-lg transition-colors flex items-center justify-center gap-2"
               >
-                <Phone size={20} /> Call Us Now
+                <Phone size={20} /> {t('home.Call Us Now')}
               </a>
             </div>
           </motion.div>

@@ -1,72 +1,75 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-
-const galleryImages = [
-  {
-    id: 1,
-    category: "food",
-    src: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Gujarati Thali",
-  },
-  {
-    id: 2,
-    category: "event",
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Wedding Setup",
-  },
-  {
-    id: 3,
-    category: "food",
-    src: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Paneer Tikka",
-  },
-  {
-    id: 4,
-    category: "setup",
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Buffet Setup",
-  },
-  {
-    id: 5,
-    category: "food",
-    src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Live Chaat",
-  },
-  {
-    id: 6,
-    category: "event",
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Corporate Event",
-  },
-  {
-    id: 7,
-    category: "food",
-    src: "https://foodish-api.com/images/dessert/dessert5.jpg",
-    alt: "Indian Sweets",
-  },
-  {
-    id: 8,
-    category: "setup",
-    src: "https://foodish-api.com/images/dessert/dessert7.jpg",
-    alt: "Outdoor Catering",
-  },
-  {
-    id: 9,
-    category: "food",
-    src: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Traditional Food",
-  },
-];
-
-const categories = [
-  { id: "all", label: "All Photos" },
-  { id: "food", label: "Food & Delicacies" },
-  { id: "event", label: "Events" },
-  { id: "setup", label: "Decoration & Setup" },
-];
+import { useTranslation } from "react-i18next";
 
 export default function Gallery() {
+  const { t } = useTranslation();
+
+  const galleryImages = [
+    {
+      id: 1,
+      category: "food",
+      src: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: t('gallery.Gujarati Thali'),
+    },
+    {
+      id: 2,
+      category: "event",
+      src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: t('gallery.Wedding Setup'),
+    },
+    {
+      id: 3,
+      category: "food",
+      src: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: t('gallery.Paneer Tikka'),
+    },
+    {
+      id: 4,
+      category: "setup",
+      src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: t('gallery.Buffet Setup'),
+    },
+    {
+      id: 5,
+      category: "food",
+      src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: t('gallery.Live Chaat'),
+    },
+    {
+      id: 6,
+      category: "event",
+      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: t('gallery.Corporate Event'),
+    },
+    {
+      id: 7,
+      category: "food",
+      src: "https://foodish-api.com/images/dessert/dessert5.jpg",
+      alt: t('gallery.Indian Sweets'),
+    },
+    {
+      id: 8,
+      category: "setup",
+      src: "https://foodish-api.com/images/dessert/dessert7.jpg",
+      alt: t('gallery.Outdoor Catering'),
+    },
+    {
+      id: 9,
+      category: "food",
+      src: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: t('gallery.Traditional Food'),
+    },
+  ];
+
+  const categories = [
+    { id: "all", label: t('gallery.All Photos') },
+    { id: "food", label: t('gallery.Food & Delicacies') },
+    { id: "event", label: t('gallery.Events') },
+    { id: "setup", label: t('gallery.Decoration & Setup') },
+  ];
+
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -85,7 +88,7 @@ export default function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-4"
           >
-            Gallery
+            {t('gallery.Gallery')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -93,7 +96,7 @@ export default function Gallery() {
             transition={{ delay: 0.2 }}
             className="text-gold text-lg md:text-xl max-w-2xl mx-auto"
           >
-            A visual feast of our culinary creations and event setups.
+            {t('gallery.A visual feast of our culinary creations and event setups.')}
           </motion.p>
         </div>
       </section>
@@ -107,11 +110,10 @@ export default function Gallery() {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  activeCategory === category.id
-                    ? "bg-gold text-white"
-                    : "bg-white text-gray-600 hover:bg-gold/20 hover:text-maroon"
-                }`}
+                className={`px-6 py-2 rounded-full font-medium transition-colors ${activeCategory === category.id
+                  ? "bg-gold text-white"
+                  : "bg-white text-gray-600 hover:bg-gold/20 hover:text-maroon"
+                  }`}
               >
                 {category.label}
               </button>

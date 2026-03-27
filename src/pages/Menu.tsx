@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const menuCategories = [
   { id: "gujarati", label: "Gujarati" },
@@ -244,6 +245,7 @@ const menuItems = {
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0].id);
+  const { t } = useTranslation();
 
   return (
     <div className="pt-24 pb-16 bg-cream min-h-screen">
@@ -255,7 +257,7 @@ export default function Menu() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-4"
           >
-            Our Menu
+            {t('menu.Our Menu')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -263,7 +265,7 @@ export default function Menu() {
             transition={{ delay: 0.2 }}
             className="text-gold text-lg md:text-xl max-w-2xl mx-auto"
           >
-            A culinary journey through the rich flavors of India.
+            {t('menu.A culinary journey through the rich flavors of India.')}
           </motion.p>
         </div>
       </section>
@@ -278,11 +280,11 @@ export default function Menu() {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeCategory === category.id
-                    ? "bg-maroon text-white shadow-lg scale-105"
-                    : "bg-white text-gray-600 hover:bg-gold/10 hover:text-maroon border border-gray-200"
+                  ? "bg-maroon text-white shadow-lg scale-105"
+                  : "bg-white text-gray-600 hover:bg-gold/10 hover:text-maroon border border-gray-200"
                   }`}
               >
-                {category.label}
+                {t(`menu.${category.label}`)}
               </button>
             ))}
           </div>
@@ -309,19 +311,19 @@ export default function Menu() {
                     >
                       <div className="flex justify-between items-start mb-3">
                         <h3 className="text-xl font-serif font-bold text-maroon pr-4">
-                          {item.name}
+                          {t(`menu.${item.name}`)}
                         </h3>
                         <span
                           className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ${item.price === "Premium"
-                              ? "bg-gold text-white"
-                              : "bg-gray-100 text-gray-800"
+                            ? "bg-gold text-white"
+                            : "bg-gray-100 text-gray-800"
                             }`}
                         >
-                          {item.price}
+                          {t(`menu.${item.price}`)}
                         </span>
                       </div>
                       <p className="text-gray-600 text-sm leading-relaxed flex-grow">
-                        {item.desc}
+                        {t(`menu.${item.desc}`)}
                       </p>
                     </motion.div>
                   ),
@@ -332,14 +334,13 @@ export default function Menu() {
 
           <div className="mt-20 text-center">
             <p className="text-gray-500 italic mb-6">
-              Note: This is a sample menu. We customize menus based on your
-              specific requirements and budget.
+              {t('menu.Note: This is a sample menu. We customize menus based on your specific requirements and budget.')}
             </p>
             <Link
               to="/book"
               className="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-full font-bold text-lg transition-colors shadow-lg"
             >
-              Request Custom Menu Quote
+              {t('menu.Request Custom Menu Quote')}
             </Link>
           </div>
         </div>

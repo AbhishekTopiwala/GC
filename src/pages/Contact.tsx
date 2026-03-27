@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Send, Clock, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,7 +37,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-4"
           >
-            Contact Us
+            {t('contact.Contact Us')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +45,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="text-gold text-lg md:text-xl max-w-2xl mx-auto"
           >
-            We'd love to hear from you. Get in touch for inquiries or feedback.
+            {t('contact.We\'d love to hear from you. Get in touch for inquiries or feedback.')}
           </motion.p>
         </div>
       </section>
@@ -61,12 +63,10 @@ export default function Contact() {
             >
               <div>
                 <h2 className="text-4xl font-serif font-bold text-maroon mb-6">
-                  Get In Touch
+                  {t('contact.Get In Touch')}
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  Whether you have a question about our menus, pricing, or want
-                  to discuss a custom catering plan, our team is ready to answer
-                  all your questions.
+                  {t('contact.Whether you have a question about our menus, pricing, or want to discuss a custom catering plan, our team is ready to answer all your questions.')}
                 </p>
               </div>
 
@@ -77,7 +77,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-gray-800 mb-2">
-                      Our Office & Base Kitchen
+                      {t('contact.Our Office & Base Kitchen')}
                     </h4>
                     <p className="text-gray-600">
                       Paresh Tailor, Oops Soni Ramchhodbhai Jewellers, Madhumati Colony
@@ -93,7 +93,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-gray-800 mb-2">
-                      Call Us
+                      {t('contact.Call Us')}
                     </h4>
                     <p className="text-gray-600">+91 90991 16166 (Primary)</p>
                     <p className="text-gray-600">+91 72278 01023 (Secondary)</p>
@@ -106,7 +106,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-gray-800 mb-2">
-                      Email Us
+                      {t('contact.Email Us')}
                     </h4>
                     <p className="text-gray-600">info@gayatricaterers.com</p>
                     <p className="text-gray-600">
@@ -121,12 +121,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-gray-800 mb-2">
-                      Business Hours
+                      {t('contact.Business Hours')}
                     </h4>
                     <p className="text-gray-600">
-                      Monday - Saturday: 9:00 AM - 8:00 PM
+                      {t('contact.Monday - Saturday')}
                     </p>
-                    <p className="text-gray-600">Sunday: 10:00 AM - 4:00 PM</p>
+                    <p className="text-gray-600">{t('contact.Sunday')}</p>
                   </div>
                 </div>
               </div>
@@ -140,7 +140,7 @@ export default function Contact() {
               className="bg-white p-10 rounded-2xl shadow-xl border border-gray-100"
             >
               <h3 className="text-2xl font-serif font-bold text-maroon mb-8">
-                Send us a Message
+                {t('contact.Send us a Message')}
               </h3>
               {isSubmitted ? (
                 <motion.div
@@ -152,10 +152,10 @@ export default function Contact() {
                     <CheckCircle className="text-green-500" size={40} />
                   </div>
                   <h4 className="text-2xl font-bold text-gray-800 mb-2">
-                    Message Sent!
+                    {t('contact.Message Sent!')}
                   </h4>
                   <p className="text-gray-600">
-                    Thank you for reaching out. We will get back to you shortly.
+                    {t('contact.Thank you for reaching out. We will get back to you shortly.')}
                   </p>
                 </motion.div>
               ) : (
@@ -166,7 +166,7 @@ export default function Contact() {
                         htmlFor="name"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Full Name
+                        {t('contact.Full Name')}
                       </label>
                       <input
                         required
@@ -183,7 +183,7 @@ export default function Contact() {
                         htmlFor="phone"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Phone Number
+                        {t('contact.Phone Number')}
                       </label>
                       <input
                         required
@@ -203,7 +203,7 @@ export default function Contact() {
                       htmlFor="email"
                       className="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Email Address
+                      {t('contact.Email Address')}
                     </label>
                     <input
                       required
@@ -221,7 +221,7 @@ export default function Contact() {
                       htmlFor="subject"
                       className="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Subject
+                      {t('contact.Subject')}
                     </label>
                     <input
                       required
@@ -239,7 +239,7 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Your Message
+                      {t('contact.Your Message')}
                     </label>
                     <textarea
                       required
@@ -256,7 +256,7 @@ export default function Contact() {
                     type="submit"
                     className="w-full bg-maroon hover:bg-maroon-light text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2"
                   >
-                    <Send size={20} /> Send Message
+                    <Send size={20} /> {t('contact.Send Message')}
                   </button>
                 </form>
               )}
@@ -270,8 +270,8 @@ export default function Contact() {
         {/* Placeholder for Google Maps iframe */}
         <div className="absolute inset-0 flex items-center justify-center text-gray-500 flex-col">
           <MapPin size={48} className="mb-4 text-maroon" />
-          <p className="text-xl font-medium">Google Maps Location</p>
-          <p className="text-sm">Navsari, Gujarat</p>
+          <p className="text-xl font-medium">{t('contact.Google Maps Location')}</p>
+          <p className="text-sm">{t('contact.Navsari, Gujarat')}</p>
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.936081525958!2d72.51080331502753!3d23.02611638495147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84cb26000001%3A0x6d2c4b4f0b2a7593!2sNavsari%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin"

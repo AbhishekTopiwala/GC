@@ -1,70 +1,73 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Rahul & Priya Sharma",
-    event: "Wedding Reception",
-    date: "December 2025",
-    rating: 5,
-    text: "Gayatri Caterers made our wedding day absolutely perfect. The Gujarati Thali was authentic and delicious. All our guests from Mumbai were amazed by the quality and taste. The service staff was incredibly polite and professional.",
-    image:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: 2,
-    name: "Amit Desai",
-    event: "Corporate Annual Gala",
-    date: "October 2025",
-    rating: 5,
-    text: "We hired them for our company's annual event for 500 employees. The execution was flawless. The live counters were a huge hit, especially the pasta and chaat stations. Highly recommended for corporate events.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: 3,
-    name: "Sneha Patel",
-    event: "50th Birthday Party",
-    date: "August 2025",
-    rating: 5,
-    text: "I wanted a mix of traditional and modern dishes for my father's 50th birthday. The team customized the menu perfectly. The food was hot, fresh, and served with a smile. The Gulab Jamuns were the best I've ever had!",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: 4,
-    name: "Vikram Singh",
-    event: "Housewarming Ceremony",
-    date: "June 2025",
-    rating: 4,
-    text: "Excellent pure vegetarian food. We had strict dietary requirements (Jain food), and they handled it with utmost care without compromising on taste. The presentation was elegant.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: 5,
-    name: "Meera Kapoor",
-    event: "Engagement Ceremony",
-    date: "April 2025",
-    rating: 5,
-    text: "From the first tasting session to the final event, the experience was seamless. The North Indian spread was rich and flavorful. They truly understand the importance of food in Indian weddings.",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: 6,
-    name: "Rajesh Mehta",
-    event: "Religious Function",
-    date: "January 2025",
-    rating: 5,
-    text: "We needed authentic traditional food for a religious gathering of 200 people. Gayatri Caterers delivered beyond our expectations. The hygiene standards were impressive, and the taste was just like home-cooked food.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function Testimonials() {
+  const { t } = useTranslation();
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Rahul & Priya Sharma",
+      event: t('testimonials.Wedding Reception'),
+      date: t('testimonials.December 2025'),
+      rating: 5,
+      text: t('testimonials.Testimonial 1'),
+      image:
+        "https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    },
+    {
+      id: 2,
+      name: "Amit Desai",
+      event: t('testimonials.Corporate Annual Gala'),
+      date: t('testimonials.October 2025'),
+      rating: 5,
+      text: t('testimonials.Testimonial 2'),
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    },
+    {
+      id: 3,
+      name: "Sneha Patel",
+      event: t('testimonials.50th Birthday Party'),
+      date: t('testimonials.August 2025'),
+      rating: 5,
+      text: t('testimonials.Testimonial 3'),
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    },
+    {
+      id: 4,
+      name: "Vikram Singh",
+      event: t('testimonials.Housewarming Ceremony'),
+      date: t('testimonials.June 2025'),
+      rating: 4,
+      text: t('testimonials.Testimonial 4'),
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    },
+    {
+      id: 5,
+      name: "Meera Kapoor",
+      event: t('testimonials.Engagement Ceremony'),
+      date: t('testimonials.April 2025'),
+      rating: 5,
+      text: t('testimonials.Testimonial 5'),
+      image:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    },
+    {
+      id: 6,
+      name: "Rajesh Mehta",
+      event: t('testimonials.Religious Function'),
+      date: t('testimonials.January 2025'),
+      rating: 5,
+      text: t('testimonials.Testimonial 6'),
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    },
+  ];
+
   return (
     <div className="pt-24 pb-16 bg-cream min-h-screen">
       {/* Header */}
@@ -75,7 +78,7 @@ export default function Testimonials() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-4"
           >
-            Client Testimonials
+            {t('testimonials.Client Testimonials')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -83,8 +86,7 @@ export default function Testimonials() {
             transition={{ delay: 0.2 }}
             className="text-gold text-lg md:text-xl max-w-2xl mx-auto"
           >
-            Don't just take our word for it. Hear what our happy clients have to
-            say.
+            {t('testimonials.Hear what our happy clients have to say.')}
           </motion.p>
         </div>
       </section>
@@ -156,7 +158,7 @@ export default function Testimonials() {
                 4.9/5
               </p>
               <p className="text-maroon-dark/80 font-medium uppercase tracking-wider">
-                Average Rating
+                {t('testimonials.Average Rating')}
               </p>
             </div>
             <div className="hidden md:block w-px h-16 bg-maroon-dark/20"></div>
@@ -165,7 +167,7 @@ export default function Testimonials() {
                 500+
               </p>
               <p className="text-maroon-dark/80 font-medium uppercase tracking-wider">
-                5-Star Reviews
+                {t('testimonials.5-Star Reviews')}
               </p>
             </div>
             <div className="hidden md:block w-px h-16 bg-maroon-dark/20"></div>
@@ -174,7 +176,7 @@ export default function Testimonials() {
                 98%
               </p>
               <p className="text-maroon-dark/80 font-medium uppercase tracking-wider">
-                Client Retention
+                {t('testimonials.Client Retention')}
               </p>
             </div>
           </div>

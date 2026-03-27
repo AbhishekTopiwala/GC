@@ -9,8 +9,11 @@ import {
   Twitter,
   ChevronRight,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-maroon-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
@@ -32,9 +35,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 leading-relaxed">
-              Premium pure vegetarian catering service in Gujarat, India. Making
-              your celebrations memorable with authentic taste and impeccable
-              service.
+              {t('footer.Subtext')}
             </p>
             <div className="flex gap-4">
               <a
@@ -61,17 +62,17 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-xl font-serif font-semibold text-gold mb-6 relative inline-block">
-              Quick Links
+              {t('footer.Quick Links')}
               <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-gold"></span>
             </h3>
             <ul className="space-y-3">
               {[
-                { name: "Home", path: "/" },
-                { name: "About Us", path: "/about" },
-                { name: "Services", path: "/services" },
-                { name: "Menu", path: "/menu" },
-                { name: "Gallery", path: "/gallery" },
-                { name: "Contact", path: "/contact" },
+                { name: t('footer.Home'), path: "/" },
+                { name: t('footer.About Us'), path: "/about" },
+                { name: t('footer.Services'), path: "/services" },
+                { name: t('footer.Menu'), path: "/menu" },
+                { name: t('footer.Gallery'), path: "/gallery" },
+                { name: t('footer.Contact'), path: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -88,16 +89,16 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-xl font-serif font-semibold text-gold mb-6 relative inline-block">
-              Our Services
+              {t('footer.Our Services')}
               <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-gold"></span>
             </h3>
             <ul className="space-y-3">
               {[
-                "Wedding Catering",
-                "Birthday Parties",
-                "Corporate Events",
-                "Religious Functions",
-                "Outdoor Catering",
+                t('footer.Wedding Catering'),
+                t('footer.Birthday Parties'),
+                t('footer.Corporate Events'),
+                t('footer.Religious Functions'),
+                t('footer.Outdoor Catering'),
               ].map((item) => (
                 <li key={item}>
                   <Link
@@ -114,16 +115,16 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-serif font-semibold text-gold mb-6 relative inline-block">
-              Contact Us
+              {t('footer.Contact Us')}
               <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-gold"></span>
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-300">
                 <MapPin className="text-gold shrink-0 mt-1" size={20} />
                 <span>
-                  Paresh Tailor, Oops Soni Ramchhodbhai Jewellers, Madhumati Colony
+                  {t('footer.Address L1')}
                   <br />
-                  Navsari, Gujarat 396445
+                  {t('footer.Address L2')}
                 </span>
               </li>
               <li className="flex items-center gap-3 text-gray-300">
@@ -142,15 +143,14 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Gayatri Caterers. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {t('footer.All rights reserved')}
           </p>
           <div className="flex gap-6 text-sm text-gray-400">
             <Link to="#" className="hover:text-gold transition-colors">
-              Privacy Policy
+              {t('footer.Privacy Policy')}
             </Link>
             <Link to="#" className="hover:text-gold transition-colors">
-              Terms of Service
+              {t('footer.Terms of Service')}
             </Link>
           </div>
         </div>

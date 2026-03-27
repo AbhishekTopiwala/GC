@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Award, Heart, ShieldCheck, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function About() {
+  const { t } = useTranslation();
   return (
     <div className="pt-24 pb-16 bg-cream min-h-screen">
       {/* Header */}
@@ -12,7 +14,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-4"
           >
-            Our Story
+            {t('about.Our Story')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -20,7 +22,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="text-gold text-lg md:text-xl max-w-2xl mx-auto"
           >
-            A legacy of taste, tradition, and trust spanning over 15 years.
+            {t('about.A legacy of taste, tradition, and trust spanning over 15 years.')}
           </motion.p>
         </div>
       </section>
@@ -45,7 +47,7 @@ export default function About() {
               <div className="absolute -bottom-10 -right-10 bg-gold text-white p-8 rounded-2xl shadow-xl hidden md:block">
                 <p className="text-4xl font-bold mb-2">15+</p>
                 <p className="text-sm uppercase tracking-wider font-semibold">
-                  Years of Excellence
+                  {t('about.Years of Excellence')}
                 </p>
               </div>
             </motion.div>
@@ -56,32 +58,21 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h2 className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
-                About Gayatri Caterers
+                {t('about.About Gayatri Caterers')}
               </h2>
               <h3 className="text-4xl font-serif font-bold text-maroon mb-6">
-                Serving Happiness Since 2008
+                {t('about.Serving Happiness Since 2008')}
               </h3>
 
               <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
                 <p>
-                  Founded by the Patel family, Gayatri Caterers started with a
-                  simple vision: to bring authentic, home-style Gujarati and
-                  North Indian flavors to large gatherings without compromising
-                  on quality or hygiene.
+                  {t('about.About P1')}
                 </p>
                 <p>
-                  What began as a small venture catering to local neighborhood
-                  events has now grown into one of Gujarat's most trusted
-                  premium vegetarian catering services. We have successfully
-                  managed events ranging from intimate gatherings of 50 people
-                  to grand royal weddings with over 5,000 guests.
+                  {t('about.About P2')}
                 </p>
                 <p>
-                  Our secret ingredient isn't just our spices; it's our
-                  unwavering commitment to treating every event as if it were
-                  our own family function. We believe that food is the soul of
-                  any celebration, and we pour our hearts into making it
-                  unforgettable.
+                  {t('about.About P3')}
                 </p>
               </div>
             </motion.div>
@@ -94,7 +85,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold text-maroon mb-4">
-              Our Core Values
+              {t('about.Our Core Values')}
             </h2>
             <div className="w-24 h-1 bg-gold mx-auto"></div>
           </div>
@@ -103,23 +94,23 @@ export default function About() {
             {[
               {
                 icon: ShieldCheck,
-                title: "Uncompromising Quality",
-                desc: "We source only the finest, freshest ingredients. No artificial colors or preservatives.",
+                title: t('about.Uncompromising Quality'),
+                desc: t('about.Quality Desc'),
               },
               {
                 icon: Heart,
-                title: "Made with Love",
-                desc: "Every dish is prepared with passion, following authentic recipes passed down through generations.",
+                title: t('about.Made with Love'),
+                desc: t('about.Love Desc'),
               },
               {
                 icon: Award,
-                title: "Impeccable Hygiene",
-                desc: "Strict adherence to food safety standards in our state-of-the-art base kitchen.",
+                title: t('about.Impeccable Hygiene'),
+                desc: t('about.Hygiene Desc'),
               },
               {
                 icon: Users,
-                title: "Customer First",
-                desc: "We listen to your needs and customize our menus to perfectly match your vision and budget.",
+                title: t('about.Customer First'),
+                desc: t('about.Customer Desc'),
               },
             ].map((value, index) => (
               <motion.div
