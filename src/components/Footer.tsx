@@ -23,12 +23,12 @@ export default function Footer() {
             <Link to="/" className="flex items-center group">
               <div className="flex flex-col justify-center">
                 <span className="font-serif font-bold text-[1.8rem] md:text-[2.6rem] text-white tracking-tight leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Gayatri Caterers
+                  {t('nav.Gayatri Caterers')}
                 </span>
                 <div className="flex items-center gap-3 mt-1.5">
                   <div className="flex-grow h-[1px] rounded-full bg-white/50"></div>
                   <span className="text-[0.65rem] md:text-[0.85rem] font-bold tracking-[0.15em] text-white uppercase whitespace-nowrap">
-                    Pure Veg Catering
+                    {t('nav.Pure Veg Catering')}
                   </span>
                   <div className="flex-grow h-[1px] rounded-full bg-white/50"></div>
                 </div>

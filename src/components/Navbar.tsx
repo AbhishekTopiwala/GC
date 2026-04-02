@@ -109,11 +109,11 @@ export default function Navbar() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between">
             {/* Brand Name (Logo removed) */}
-            <Link to="/" className="flex items-center gap-3 z-50 group">
+            <Link to="/" className="flex items-center gap-3 z-50 group shrink-0">
               <div className="flex flex-col justify-center">
                 <span
                   className={cn(
-                    "font-serif font-bold text-[1.8rem] md:text-[2.6rem] tracking-tight leading-none transition-colors duration-300",
+                    "font-serif font-bold text-[1.6rem] md:text-[2.6rem] tracking-tight leading-none transition-colors duration-300 whitespace-nowrap",
                     hasBackground || isMobileMenuOpen ? "text-[#5e0000]" : "text-white drop-shadow-md"
                   )}
                   style={{ fontFamily: "'Playfair Display', serif" }}

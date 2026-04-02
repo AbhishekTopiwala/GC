@@ -18,7 +18,7 @@ export default function FloatingWhatsApp() {
   const message = encodeURIComponent(
     "Hello Gayatri Caterers, I want catering for my event.",
   );
-  const whatsappUrl = `https://wa.me/919876543210?text=${message}`;
+  const whatsappUrl = `https://wa.me/919099116166?text=${message}`;
 
   return (
     <motion.a

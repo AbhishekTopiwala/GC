@@ -20,9 +20,13 @@ i18n
     .init({
         resources,
         fallbackLng: 'gu', // default to Gujarati if detection fails
-        lng: 'gu', // set default language to Gujarati
+        debug: false,
+        detection: {
+            order: ['localStorage', 'cookie', 'navigator', 'htmlTag', 'path', 'subdomain'],
+            caches: ['localStorage', 'cookie'],
+        },
         interpolation: {
-            escapeValue: false, // not needed for react as it escapes by default
+            escapeValue: false,
         },
     });
 
